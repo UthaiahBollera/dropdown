@@ -35,7 +35,7 @@ class Dropdown extends Event {
     this.dropdownValues
       .filter(address => {
         const { value } = address;
-        return this.selectedValue && value.toLowerCase().indexOf(this.selectedValue) >= 0 || value === this.selectedValue ;
+        return this.selectedValue && value.toLowerCase().indexOf(this.selectedValue.toLowerCase()) >= 0 || value === this.selectedValue ;
       })
       .forEach((address, index) => {
         const { value } = address;
@@ -299,7 +299,7 @@ let data = [
 
 let ddr1 = new Dropdown("dropdown", {
   data,
-  placeholderText: "Search Indian states by name"
+  placeholderText: "Select State"
 }).subscribe('onDDRItemSelected',(value)=>{
   console.log('Selected Item', value);
 });
